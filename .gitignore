@@ -1,0 +1,17 @@
+build/
+DerivedData/
+.DS_Store
+
+# Xcode user state
+*.xcuserstate
+xcuserdata/
+
+# Local agent/session files
+.gstack/
+PocketMoleWatch.xcodeproj/.gstack/
+
+# Local export and signing artifacts
+*.ipa
+*.xcarchive
+*.mobileprovision
+exportOptions*.plist

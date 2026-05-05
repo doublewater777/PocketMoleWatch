@@ -1,0 +1,63 @@
+name: PocketMoleWatch
+options:
+  bundleIdPrefix: com.example
+  deploymentTarget:
+    watchOS: "10.0"
+  xcodeVersion: "15.0"
+
+targets:
+  PocketMoleWatchContainer:
+    type: application.watchapp2-container
+    platform: iOS
+    sources:
+      - PocketMoleWatchContainerAssets.xcassets
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.yangpan.pocketmole
+        PRODUCT_NAME: PocketMoleWatch
+        MARKETING_VERSION: "1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: "Pocket Mole"
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: 29C8MS76CZ
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        TARGETED_DEVICE_FAMILY: "1"
+    dependencies:
+      - target: PocketMoleWatch
+        embed: true
+
+  PocketMoleWatch:
+    type: application
+    platform: watchOS
+    sources:
+      - path: PocketMoleWatch
+        excludes:
+          - Localizable.strings
+    settings:
+      base:
+        INFOPLIST_FILE: PocketMoleWatch/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.yangpan.pocketmole.watchkitapp
+        MARKETING_VERSION: "1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        GENERATE_INFOPLIST_FILE: YES
+        SKIP_INSTALL: YES
+        SWIFT_VERSION: "5.0"
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: 29C8MS76CZ
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        TARGETED_DEVICE_FAMILY: "4"
+        SUPPORTS_MACCATALYST: NO
+        INFOPLIST_KEY_WKApplication: YES
+        INFOPLIST_KEY_WKWatchOnly: YES
+
+schemes:
+  PocketMoleWatch:
+    build:
+      targets:
+        PocketMoleWatchContainer: all
+    run:
+      config: Debug
+      executable: PocketMoleWatchContainer
+    archive:
+      config: Release

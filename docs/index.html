@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pocket Mole Watch Support</title>
+  <meta name="description" content="Support page for Pocket Mole Watch.">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7efe3;
+      --surface: rgba(255, 250, 243, 0.9);
+      --text: #2b170d;
+      --muted: #6e5144;
+      --accent: #9f4f17;
+      --line: rgba(83, 44, 25, 0.12);
+      --shadow: 0 20px 60px rgba(107, 60, 31, 0.16);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(255, 212, 122, 0.45), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(176, 98, 42, 0.18), transparent 28%),
+        linear-gradient(180deg, #fff8ef 0%, var(--bg) 100%);
+      line-height: 1.6;
+    }
+
+    .wrap {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0 56px;
+    }
+
+    .hero, .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero {
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      padding: 24px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(214, 125, 47, 0.12);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    h1 {
+      margin: 16px 0 10px;
+      font-size: clamp(32px, 5vw, 54px);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: 24px;
+    }
+
+    h3 {
+      margin: 18px 0 8px;
+      font-size: 16px;
+    }
+
+    p, li { color: var(--muted); }
+
+    .lead {
+      max-width: 680px;
+      font-size: 18px;
+      margin: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+    }
+
+    a {
+      color: var(--accent);
+      text-underline-offset: 2px;
+    }
+
+    .notice {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.74);
+      border: 1px solid var(--line);
+    }
+
+    .footer {
+      margin-top: 16px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 20px, 920px); padding-top: 20px; }
+      .hero, .card { padding: 20px; border-radius: 20px; }
+      .grid { grid-template-columns: 1fr; }
+      .lead { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div class="eyebrow">Pocket Mole Watch</div>
+      <h1>Support</h1>
+      <p class="lead">
+        Pocket Mole Watch is a quick Apple Watch arcade game built for short, playful 30-second sessions.
+        If you need help, have feedback, or want to report a bug, use the contact details on this page.
+      </p>
+      <div class="notice">
+        Contact: <a href="mailto:doublewater777@outlook.com">doublewater777@outlook.com</a>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>Get Help</h2>
+        <p>
+          When contacting support, include your Apple Watch model, watchOS version, and a short description
+          of the problem. Screenshots or clear steps to reproduce the issue are also helpful.
+        </p>
+
+        <h3>Common topics</h3>
+        <ul>
+          <li>Gameplay or score questions</li>
+          <li>Sound or haptic feedback issues</li>
+          <li>Launch or responsiveness problems</li>
+          <li>General product feedback</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Privacy</h2>
+        <p>
+          Pocket Mole Watch does not require sign-in and does not collect personal information for advertising
+          or tracking.
+        </p>
+
+        <h3>Policy</h3>
+        <p>
+          Read the full privacy policy here:
+          <a href="privacy.html">Pocket Mole Watch Privacy Policy</a>
+        </p>
+      </article>
+    </section>
+
+    <p class="footer">Last updated: May 5, 2026</p>
+  </main>
+</body>
+</html>

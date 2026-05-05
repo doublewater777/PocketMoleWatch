@@ -1,0 +1,480 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		08C65149ED5E82CE01173DF5 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B0227AB2C12C8EADF27BC /* GameViewModel.swift */; };
+		292DD06C29D59B65DFDCD0CB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6E738C19BACE650D9A41FB /* ContentView.swift */; };
+		62D5803746B0BD536F62FF6E /* finish.wav in Resources */ = {isa = PBXBuildFile; fileRef = 12193B8A6514B9C982D9D95F /* finish.wav */; };
+		86701BE3C988ABC90A9D7E6C /* PocketMoleWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415218877F0B2FA9445331EF /* PocketMoleWatchApp.swift */; };
+		AB98AF9DDC86855B53C8AB5E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1372665258157DAAAE0E7BCD /* Localizable.strings */; };
+		BF469306DCD4F5F45435AB37 /* hit.wav in Resources */ = {isa = PBXBuildFile; fileRef = 65C04369CCC0E8D5D603DF1A /* hit.wav */; };
+		C15F9E18ACCCB8F3FD805964 /* PocketMoleWatchContainerAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FBACE0EE42C32FB3CE93EDA /* PocketMoleWatchContainerAssets.xcassets */; };
+		CC77B261370F9FDE4EB7FF8C /* golden.wav in Resources */ = {isa = PBXBuildFile; fileRef = BD7B96F61DF84B4614ED0AAA /* golden.wav */; };
+		EBFDA001930F375484941ACB /* PocketMoleWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 389F8CE548E0955FEB50AB68 /* PocketMoleWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FDD51039F9FBEDAEB5B2BBAD /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433F98B178C3D5C54AD95CAB /* SoundPlayer.swift */; };
+		FE5C427111F4E1C08C4524F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13EF77D9BF85CB72A8E4E0CA /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A97EB7A9DBA5D437AEA49975 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66D6D434894975B422869C2B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AB154A1DFD81BBADE25D3D64;
+			remoteInfo = PocketMoleWatch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D7FA740FDBE476EE4050F45B /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				EBFDA001930F375484941ACB /* PocketMoleWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		12193B8A6514B9C982D9D95F /* finish.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = finish.wav; sourceTree = "<group>"; };
+		13EF77D9BF85CB72A8E4E0CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		17B08D942FE35FD612DB295A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		1C6072DD78F98E3CBBA3B01E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		389F8CE548E0955FEB50AB68 /* PocketMoleWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketMoleWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		415218877F0B2FA9445331EF /* PocketMoleWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketMoleWatchApp.swift; sourceTree = "<group>"; };
+		433F98B178C3D5C54AD95CAB /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
+		5FBACE0EE42C32FB3CE93EDA /* PocketMoleWatchContainerAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PocketMoleWatchContainerAssets.xcassets; sourceTree = "<group>"; };
+		65C04369CCC0E8D5D603DF1A /* hit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hit.wav; sourceTree = "<group>"; };
+		7CE90F89DB948B5695F209BE /* PocketMoleWatchContainer.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = PocketMoleWatchContainer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		834B0227AB2C12C8EADF27BC /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		BD7B96F61DF84B4614ED0AAA /* golden.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = golden.wav; sourceTree = "<group>"; };
+		BF6E738C19BACE650D9A41FB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D6B335175B2748B1C94DD3C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		289E0C05FB0E78567883B89E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				389F8CE548E0955FEB50AB68 /* PocketMoleWatch.app */,
+				7CE90F89DB948B5695F209BE /* PocketMoleWatchContainer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4A12221D8AC120BAF3326F4D /* PocketMoleWatch */ = {
+			isa = PBXGroup;
+			children = (
+				13EF77D9BF85CB72A8E4E0CA /* Assets.xcassets */,
+				BF6E738C19BACE650D9A41FB /* ContentView.swift */,
+				12193B8A6514B9C982D9D95F /* finish.wav */,
+				834B0227AB2C12C8EADF27BC /* GameViewModel.swift */,
+				BD7B96F61DF84B4614ED0AAA /* golden.wav */,
+				65C04369CCC0E8D5D603DF1A /* hit.wav */,
+				17B08D942FE35FD612DB295A /* Info.plist */,
+				415218877F0B2FA9445331EF /* PocketMoleWatchApp.swift */,
+				433F98B178C3D5C54AD95CAB /* SoundPlayer.swift */,
+				1372665258157DAAAE0E7BCD /* Localizable.strings */,
+			);
+			path = PocketMoleWatch;
+			sourceTree = "<group>";
+		};
+		DFF4BAB1A98C28F6B905BB4A = {
+			isa = PBXGroup;
+			children = (
+				5FBACE0EE42C32FB3CE93EDA /* PocketMoleWatchContainerAssets.xcassets */,
+				4A12221D8AC120BAF3326F4D /* PocketMoleWatch */,
+				289E0C05FB0E78567883B89E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8840502C0BBD268D4BCD39AD /* PocketMoleWatchContainer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 171F8FE7344D642AB3D604A7 /* Build configuration list for PBXNativeTarget "PocketMoleWatchContainer" */;
+			buildPhases = (
+				9A61672040E8D1EDEEF226C9 /* Sources */,
+				7D00CD6C39BBBA42812B31D7 /* Resources */,
+				D7FA740FDBE476EE4050F45B /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7FAC6C9F9063FBD2C0A02D0B /* PBXTargetDependency */,
+			);
+			name = PocketMoleWatchContainer;
+			packageProductDependencies = (
+			);
+			productName = PocketMoleWatchContainer;
+			productReference = 7CE90F89DB948B5695F209BE /* PocketMoleWatchContainer.app */;
+			productType = "com.apple.product-type.application.watchapp2-container";
+		};
+		AB154A1DFD81BBADE25D3D64 /* PocketMoleWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 58C6E799BBF978F47A158D30 /* Build configuration list for PBXNativeTarget "PocketMoleWatch" */;
+			buildPhases = (
+				D62CADCFC1A27D5049FDDD05 /* Sources */,
+				3FD4623B51181705360D2189 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PocketMoleWatch;
+			packageProductDependencies = (
+			);
+			productName = PocketMoleWatch;
+			productReference = 389F8CE548E0955FEB50AB68 /* PocketMoleWatch.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		66D6D434894975B422869C2B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					8840502C0BBD268D4BCD39AD = {
+						DevelopmentTeam = 29C8MS76CZ;
+						ProvisioningStyle = Automatic;
+					};
+					AB154A1DFD81BBADE25D3D64 = {
+						DevelopmentTeam = 29C8MS76CZ;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = A3079C2F59BE295A5E41116F /* Build configuration list for PBXProject "PocketMoleWatch" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+				"zh-Hans",
+			);
+			mainGroup = DFF4BAB1A98C28F6B905BB4A;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 289E0C05FB0E78567883B89E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AB154A1DFD81BBADE25D3D64 /* PocketMoleWatch */,
+				8840502C0BBD268D4BCD39AD /* PocketMoleWatchContainer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3FD4623B51181705360D2189 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE5C427111F4E1C08C4524F5 /* Assets.xcassets in Resources */,
+				AB98AF9DDC86855B53C8AB5E /* Localizable.strings in Resources */,
+				62D5803746B0BD536F62FF6E /* finish.wav in Resources */,
+				CC77B261370F9FDE4EB7FF8C /* golden.wav in Resources */,
+				BF469306DCD4F5F45435AB37 /* hit.wav in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7D00CD6C39BBBA42812B31D7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C15F9E18ACCCB8F3FD805964 /* PocketMoleWatchContainerAssets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9A61672040E8D1EDEEF226C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D62CADCFC1A27D5049FDDD05 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				292DD06C29D59B65DFDCD0CB /* ContentView.swift in Sources */,
+				08C65149ED5E82CE01173DF5 /* GameViewModel.swift in Sources */,
+				86701BE3C988ABC90A9D7E6C /* PocketMoleWatchApp.swift in Sources */,
+				FDD51039F9FBEDAEB5B2BBAD /* SoundPlayer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7FAC6C9F9063FBD2C0A02D0B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AB154A1DFD81BBADE25D3D64 /* PocketMoleWatch */;
+			targetProxy = A97EB7A9DBA5D437AEA49975 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1372665258157DAAAE0E7BCD /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D6B335175B2748B1C94DD3C7 /* en */,
+				1C6072DD78F98E3CBBA3B01E /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		00FBAAE08744F4901D98D287 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+		45C72AC2B4923707B5A4A68B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 29C8MS76CZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PocketMoleWatch/Info.plist;
+				INFOPLIST_KEY_WKApplication = YES;
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yangpan.pocketmole.watchkitapp;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Release;
+		};
+		B0E2822A26E393556029B6C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 29C8MS76CZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Pocket Mole";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yangpan.pocketmole;
+				PRODUCT_NAME = PocketMoleWatch;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		C1E6155EA368F7022CBF1EF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		E656E255F12AD30DFCB5F6A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 29C8MS76CZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PocketMoleWatch/Info.plist;
+				INFOPLIST_KEY_WKApplication = YES;
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yangpan.pocketmole.watchkitapp;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Debug;
+		};
+		F0AE5494C780919FC682A1F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 29C8MS76CZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Pocket Mole";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yangpan.pocketmole;
+				PRODUCT_NAME = PocketMoleWatch;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		171F8FE7344D642AB3D604A7 /* Build configuration list for PBXNativeTarget "PocketMoleWatchContainer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0E2822A26E393556029B6C8 /* Debug */,
+				F0AE5494C780919FC682A1F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		58C6E799BBF978F47A158D30 /* Build configuration list for PBXNativeTarget "PocketMoleWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E656E255F12AD30DFCB5F6A3 /* Debug */,
+				45C72AC2B4923707B5A4A68B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A3079C2F59BE295A5E41116F /* Build configuration list for PBXProject "PocketMoleWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1E6155EA368F7022CBF1EF0 /* Debug */,
+				00FBAAE08744F4901D98D287 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 66D6D434894975B422869C2B /* Project object */;
+}
