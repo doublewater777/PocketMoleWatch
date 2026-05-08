@@ -68,6 +68,7 @@ final class GameViewModel: ObservableObject {
 
         guard activeHole == index else {
             flashHole = index
+            WKInterfaceDevice.current().play(.retry)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.08) {
                 if self.flashHole == index {
                     self.flashHole = nil
@@ -84,16 +85,34 @@ final class GameViewModel: ObservableObject {
         longestStreak = max(longestStreak, streak)
         flashHole = index
         rewardHole = index
-        rewardText = points == 1 ? "+1" : "+2"
+
+        let isCombo = streak >= 5
+        let prefix = isCombo ? "🔥+" : "+"
+        rewardText = "\(prefix)\(points)"
+
         activeHole = nil
         activeKind = .normal
 
-        WKInterfaceDevice.current().play(.click)
+        if wasGolden {
+            WKInterfaceDevice.current().play(.success)
+        } else {
+            WKInterfaceDevice.current().play(.click)
+        }
+
+        if streak > 0 && streak % 5 == 0 {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                WKInterfaceDevice.current().play(.directionUp)
+            }
+        }
+
         SoundPlayer.shared.playHit(isGolden: wasGolden)
 
+        let targetMoleScale: CGFloat = isCombo ? 0.65 : 0.78
+        let targetScoreScale: CGFloat = isCombo ? 1.25 : 1.14
+
         withAnimation(.spring(response: 0.18, dampingFraction: 0.58)) {
-            moleScale = 0.78
-            scoreScale = 1.14
+            moleScale = targetMoleScale
+            scoreScale = targetScoreScale
         }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.09) {

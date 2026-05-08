@@ -1,6 +1,7 @@
 build/
 .build/
 DerivedData/
+.DerivedData/
 .DS_Store
 .browser-profile
 
