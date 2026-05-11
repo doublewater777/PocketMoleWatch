@@ -102,6 +102,7 @@ struct ContentView: View {
                             HoleButton(
                                 isActive: vm.activeHole == index,
                                 isGolden: vm.activeHole == index && vm.activeKind == .golden,
+                                isBomb: vm.activeHole == index && vm.activeKind == .bomb,
                                 isFlashed: vm.flashHole == index,
                                 isRewarded: vm.rewardHole == index,
                                 rewardText: vm.rewardText,
@@ -137,9 +138,9 @@ struct ContentView: View {
                     .opacity(animateRush ? 1 : 0.74)
                     .transition(.opacity.combined(with: .scale))
             } else if vm.showsStreak {
-                Text("\(localized("streak_prefix")) \(vm.streak)")
+                Text(streakStatus)
                     .font(.system(size: 9, weight: .heavy, design: .rounded))
-                    .foregroundStyle(vm.streak >= 4 ? .sunYellow : .cream)
+                    .foregroundStyle(vm.multiplier > 1 ? .sunYellow : .cream)
                     .transition(.opacity.combined(with: .scale))
             } else {
                 Text(" ")
@@ -147,6 +148,14 @@ struct ContentView: View {
             }
         }
         .frame(height: 20)
+    }
+
+    private var streakStatus: String {
+        if vm.multiplier > 1 {
+            return "x\(vm.multiplier)  \(localized("streak_prefix")) \(vm.streak)"
+        }
+
+        return "\(localized("streak_prefix")) \(vm.streak)"
     }
 
     private var resultView: some View {
@@ -194,6 +203,8 @@ struct ContentView: View {
                     )
             }
             .buttonStyle(.plain)
+            .disabled(!vm.canPlayAgain)
+            .opacity(vm.canPlayAgain ? 1.0 : 0.54)
 
             Button {
                 vm.backToHome()
@@ -222,6 +233,7 @@ struct ContentView: View {
 private struct HoleButton: View {
     let isActive: Bool
     let isGolden: Bool
+    let isBomb: Bool
     let isFlashed: Bool
     let isRewarded: Bool
     let rewardText: String
@@ -250,29 +262,37 @@ private struct HoleButton: View {
                     .offset(y: 7)
 
                 if isActive {
-                    MoleView(isGolden: isGolden)
-                        .scaleEffect(moleScale)
-                        .offset(y: -1)
-                        .transition(.scale.combined(with: .opacity))
+                    if isBomb {
+                        BombView()
+                            .scaleEffect(moleScale)
+                            .rotationEffect(.degrees(isFlashed ? -8 : 4))
+                            .offset(y: -3)
+                            .transition(.scale.combined(with: .opacity))
+                    } else {
+                        MoleView(isGolden: isGolden)
+                            .scaleEffect(moleScale)
+                            .offset(y: -1)
+                            .transition(.scale.combined(with: .opacity))
+                    }
                 }
 
                 if isFlashed {
                     Circle()
-                        .fill(.sunYellow.opacity(0.22))
-                        .scaleEffect(1.08)
+                        .fill((isBomb ? Color.rushRed : Color.sunYellow).opacity(isBomb ? 0.34 : 0.22))
+                        .scaleEffect(isBomb ? 1.22 : 1.08)
                 }
 
                 if isRewarded {
                     Text(rewardText)
                         .font(.system(size: 12, weight: .heavy, design: .rounded))
-                        .foregroundStyle(isGolden ? .sunYellow : .cream)
+                        .foregroundStyle(rewardText.hasPrefix("-") ? .rushRed : (isGolden ? .sunYellow : .cream))
                         .offset(y: -26)
                         .transition(.move(edge: .top).combined(with: .opacity))
                 }
             }
             .frame(height: 56)
             .contentShape(Circle())
-            .scaleEffect(isFlashed ? 0.96 : 1.0)
+            .scaleEffect(isFlashed ? (isBomb ? 0.90 : 0.96) : 1.0)
             .animation(.easeOut(duration: 0.12), value: isFlashed)
         }
         .buttonStyle(.plain)
@@ -319,6 +339,79 @@ private struct MoleView: View {
                 .offset(y: 10)
         }
         .shadow(color: isGolden ? .sunYellow.opacity(0.35) : .black.opacity(0.14), radius: 3, y: 1)
+    }
+}
+
+private struct BombView: View {
+    var body: some View {
+        ZStack {
+            Circle()
+                .fill(.rushRed.opacity(0.20))
+                .frame(width: 50, height: 50)
+                .blur(radius: 5)
+
+            ForEach(0 ..< 8, id: \.self) { index in
+                Capsule()
+                    .fill(index.isMultiple(of: 2) ? .rushRed : .sunYellow)
+                    .frame(width: 3, height: index.isMultiple(of: 2) ? 10 : 7)
+                    .offset(y: -24)
+                    .rotationEffect(.degrees(Double(index) * 45))
+            }
+
+            Circle()
+                .fill(
+                    LinearGradient(
+                        colors: [.bombTop, .bombBottom],
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    )
+                )
+                .frame(width: 34, height: 34)
+
+            Circle()
+                .stroke(.rushRed.opacity(0.96), lineWidth: 3)
+                .frame(width: 41, height: 41)
+
+            Circle()
+                .stroke(.sunYellow.opacity(0.72), lineWidth: 1)
+                .frame(width: 47, height: 47)
+
+            Circle()
+                .fill(.white.opacity(0.30))
+                .frame(width: 9, height: 9)
+                .offset(x: -7, y: -8)
+
+            RoundedRectangle(cornerRadius: 2, style: .continuous)
+                .fill(.rushRed)
+                .frame(width: 18, height: 6)
+                .rotationEffect(.degrees(36))
+                .offset(x: 12, y: -16)
+
+            Capsule()
+                .fill(.sunYellow)
+                .frame(width: 11, height: 3)
+                .rotationEffect(.degrees(-28))
+                .offset(x: 19, y: -21)
+
+            Capsule()
+                .fill(.rushRed)
+                .frame(width: 11, height: 3)
+                .rotationEffect(.degrees(24))
+                .offset(x: -7, y: -2)
+
+            Capsule()
+                .fill(.rushRed)
+                .frame(width: 11, height: 3)
+                .rotationEffect(.degrees(-24))
+                .offset(x: 7, y: -2)
+
+            RoundedRectangle(cornerRadius: 2, style: .continuous)
+                .fill(.white.opacity(0.70))
+                .frame(width: 14, height: 4)
+                .rotationEffect(.degrees(-3))
+                .offset(y: 9)
+        }
+        .shadow(color: .rushRed.opacity(0.55), radius: 6, y: 1)
     }
 }
 
@@ -445,6 +538,8 @@ private extension ShapeStyle where Self == Color {
     static var orangeSoft: Color { Color(red: 0.96, green: 0.57, blue: 0.25) }
     static var rushRed: Color { Color(red: 0.95, green: 0.38, blue: 0.28) }
     static var brownDark: Color { Color(red: 0.28, green: 0.16, blue: 0.08) }
+    static var bombTop: Color { Color(red: 0.20, green: 0.20, blue: 0.22) }
+    static var bombBottom: Color { Color(red: 0.04, green: 0.04, blue: 0.05) }
 }
 
 #Preview {

@@ -6,13 +6,16 @@ final class GameViewModel: ObservableObject {
     enum MoleKind {
         case normal
         case golden
+        case bomb
 
-        var points: Int {
+        var basePoints: Int {
             switch self {
             case .normal:
                 return 1
             case .golden:
                 return 2
+            case .bomb:
+                return 0
             }
         }
     }
@@ -36,6 +39,7 @@ final class GameViewModel: ObservableObject {
     @Published var moleScale: CGFloat = 1.0
     @Published var scoreScale: CGFloat = 1.0
     @Published var didSetBest = false
+    @Published var canPlayAgain = false
 
     @AppStorage("bestScore") var bestScore = 0
 
@@ -56,6 +60,7 @@ final class GameViewModel: ObservableObject {
         moleScale = 1.0
         scoreScale = 1.0
         didSetBest = false
+        canPlayAgain = false
         screen = .playing
 
         spawnMole()
@@ -67,6 +72,7 @@ final class GameViewModel: ObservableObject {
         guard screen == .playing else { return }
 
         guard activeHole == index else {
+            streak = 0
             flashHole = index
             WKInterfaceDevice.current().play(.retry)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.08) {
@@ -77,19 +83,22 @@ final class GameViewModel: ObservableObject {
             return
         }
 
-        let points = activeKind.points
+        if activeKind == .bomb {
+            hitBomb(at: index)
+            return
+        }
+
+        streak += 1
+        let points = activeKind.basePoints * multiplier
         let wasGolden = activeKind == .golden
 
         score += points
-        streak += 1
         longestStreak = max(longestStreak, streak)
         flashHole = index
         rewardHole = index
-
         let isCombo = streak >= 5
         let prefix = isCombo ? "🔥+" : "+"
         rewardText = "\(prefix)\(points)"
-
         activeHole = nil
         activeKind = .normal
 
@@ -133,7 +142,42 @@ final class GameViewModel: ObservableObject {
         }
     }
 
+    private func hitBomb(at index: Int) {
+        score = max(0, score - 2)
+        streak = 0
+        flashHole = index
+        rewardHole = index
+        rewardText = "-2"
+        activeHole = nil
+        activeKind = .normal
+
+        WKInterfaceDevice.current().play(.failure)
+
+        withAnimation(.spring(response: 0.16, dampingFraction: 0.52)) {
+            moleScale = 0.70
+            scoreScale = 0.92
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.10) {
+            withAnimation(.spring(response: 0.22, dampingFraction: 0.64)) {
+                self.moleScale = 1.0
+                self.scoreScale = 1.0
+            }
+            self.spawnMole()
+            self.scheduleMoleTimer()
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.16) {
+            self.flashHole = nil
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.34) {
+            self.rewardHole = nil
+        }
+    }
+
     func playAgain() {
+        guard canPlayAgain else { return }
         startGame()
     }
 
@@ -142,6 +186,7 @@ final class GameViewModel: ObservableObject {
         activeHole = nil
         flashHole = nil
         rewardHole = nil
+        canPlayAgain = false
         screen = .home
     }
 
@@ -151,6 +196,17 @@ final class GameViewModel: ObservableObject {
 
     var showsStreak: Bool {
         streak >= 2
+    }
+
+    var multiplier: Int {
+        switch streak {
+        case 10...:
+            return 3
+        case 5...:
+            return 2
+        default:
+            return 1
+        }
     }
 
     var resultTitleKey: String {
@@ -227,6 +283,19 @@ final class GameViewModel: ObservableObject {
             goldenChance = 8
         }
 
+        let bombChance: Int
+        if timeLeft <= 8 {
+            bombChance = 5
+        } else if streak >= 5 || timeLeft <= 15 {
+            bombChance = 7
+        } else {
+            bombChance = 10
+        }
+
+        if Int.random(in: 0 ..< bombChance) == 0 {
+            return .bomb
+        }
+
         return Int.random(in: 0 ..< goldenChance) == 0 ? .golden : .normal
     }
 
@@ -255,11 +324,18 @@ final class GameViewModel: ObservableObject {
         activeHole = nil
         flashHole = nil
         rewardHole = nil
+        canPlayAgain = false
         didSetBest = score > bestScore
         bestScore = max(bestScore, score)
         screen = .result
         WKInterfaceDevice.current().play(.success)
         SoundPlayer.shared.playFinish()
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+            if self.screen == .result {
+                self.canPlayAgain = true
+            }
+        }
     }
 
     private func stopTimers() {
