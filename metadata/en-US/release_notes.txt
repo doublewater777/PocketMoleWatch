@@ -1,0 +1,1 @@
+Initial release — tap moles, build streaks, and chase high scores in quick 30-second rounds on Apple Watch.

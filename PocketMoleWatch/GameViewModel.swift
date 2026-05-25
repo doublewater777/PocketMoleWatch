@@ -45,6 +45,7 @@ final class GameViewModel: ObservableObject {
 
     private var gameTimer: Timer?
     private var moleTimer: Timer?
+    private var currentMoleInterval: TimeInterval = 0.86
 
     func startGame() {
         stopTimers()
@@ -247,7 +248,11 @@ final class GameViewModel: ObservableObject {
         timeLeft -= 1
         if timeLeft <= 0 {
             endGame()
-        } else {
+            return
+        }
+
+        let newInterval = moleInterval()
+        if newInterval != currentMoleInterval {
             scheduleMoleTimer()
         }
     }
@@ -299,22 +304,25 @@ final class GameViewModel: ObservableObject {
         return Int.random(in: 0 ..< goldenChance) == 0 ? .golden : .normal
     }
 
+    private func moleInterval() -> TimeInterval {
+        switch timeLeft {
+        case 21 ... 30:
+            return 0.86
+        case 11 ... 20:
+            return 0.70
+        case 6 ... 10:
+            return 0.56
+        default:
+            return 0.46
+        }
+    }
+
     private func scheduleMoleTimer() {
         moleTimer?.invalidate()
 
-        let interval: TimeInterval
-        switch timeLeft {
-        case 21 ... 30:
-            interval = 0.86
-        case 11 ... 20:
-            interval = 0.70
-        case 6 ... 10:
-            interval = 0.56
-        default:
-            interval = 0.46
-        }
+        currentMoleInterval = moleInterval()
 
-        moleTimer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { _ in
+        moleTimer = Timer.scheduledTimer(withTimeInterval: currentMoleInterval, repeats: true) { _ in
             self.spawnMole()
         }
     }

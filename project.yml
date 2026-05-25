@@ -16,7 +16,7 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.yangpan.pocketmole
         PRODUCT_NAME: PocketMoleWatch
         MARKETING_VERSION: "1.1"
-        CURRENT_PROJECT_VERSION: "3"
+        CURRENT_PROJECT_VERSION: "4"
         INFOPLIST_KEY_ITSAppUsesNonExemptEncryption: NO
         GENERATE_INFOPLIST_FILE: YES
         INFOPLIST_KEY_CFBundleDisplayName: "Pocket Mole"
@@ -40,7 +40,7 @@ targets:
         INFOPLIST_FILE: PocketMoleWatch/Info.plist
         PRODUCT_BUNDLE_IDENTIFIER: com.yangpan.pocketmole.watchkitapp
         MARKETING_VERSION: "1.1"
-        CURRENT_PROJECT_VERSION: "3"
+        CURRENT_PROJECT_VERSION: "4"
         INFOPLIST_KEY_ITSAppUsesNonExemptEncryption: NO
         GENERATE_INFOPLIST_FILE: YES
         SKIP_INSTALL: YES
