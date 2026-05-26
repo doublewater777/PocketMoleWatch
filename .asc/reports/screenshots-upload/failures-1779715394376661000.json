@@ -1,0 +1,28 @@
+{
+  "versionLocalizationId": "659005a3-e24a-4bd9-b0d7-028163c1a1e9",
+  "path": ".asc/reports/screenshots-upload/failures-1779715394376661000.json",
+  "deviceType": "WATCH_SERIES_10",
+  "displayType": "APP_WATCH_SERIES_10",
+  "setId": "a4a11257-5c42-4ecf-b60e-796e5b2eb7a6",
+  "orderedIds": [
+    "98b52b45-c7bf-4a4c-8172-4acf88655074",
+    "079a24ea-14df-41bc-b70b-de84f6ec3251",
+    "505a36dd-1019-4e7d-9084-cd0d89b35265",
+    "f52cb870-b52a-418a-8cfc-6f2d192042ea"
+  ],
+  "pendingFiles": [
+    "/Users/water/Desktop/dev/PocketMoleWatch/metadata/screenshots/watch_416x496/en/Gemini_Generated_Image_l820oul820oul820.png",
+    "/Users/water/Desktop/dev/PocketMoleWatch/metadata/screenshots/watch_416x496/en/Gemini_Generated_Image_m2cf96m2cf96m2cf.png",
+    "/Users/water/Desktop/dev/PocketMoleWatch/metadata/screenshots/watch_416x496/en/Gemini_Generated_Image_qhszwqqhszwqqhsz.png",
+    "/Users/water/Desktop/dev/PocketMoleWatch/metadata/screenshots/watch_416x496/en/Gemini_Generated_Image_ut5henut5henut5h.png"
+  ],
+  "failures": [
+    {
+      "fileName": "Gemini_Generated_Image_l820oul820oul820.png",
+      "filePath": "/Users/water/Desktop/dev/PocketMoleWatch/metadata/screenshots/watch_416x496/en/Gemini_Generated_Image_l820oul820oul820.png",
+      "error": "The request cannot be fulfilled because of the state of another resource.: Can't Create Screenshot while Waiting For Review appScreenshots"
+    }
+  ],
+  "error": "The request cannot be fulfilled because of the state of another resource.: Can't Create Screenshot while Waiting For Review appScreenshots",
+  "generatedAt": "2026-05-25T13:23:14Z"
+}
